@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Front Load Washing Machine - Advanced Cleaning Technology</title>
+    <!-- Previous CSS styles remain the same -->
+    <style>
+    * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --primary: #4CAF50;
+            --secondary: #2196F3;
+            --accent: #FF5722;
+            --gray: #f5f5f5;
+            --text: #333;
+        }
+
+        body {
+            background-color: var(--gray);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        nav {
+            background: white;
+            padding: 1rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary);
+        }
+
+        .nav-links a {
+            margin-left: 2rem;
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 500;
+        }
+
+        .product-container {
+            max-width: 1200px;
+            margin: 100px auto 50px;
+            padding: 2rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .product-gallery {
+            position: sticky;
+            top: 100px;
+        }
+
+        .main-image {
+            width: 100%;
+            height: 400px;
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .main-image img {
+            width: 150%;
+            height: 90%;
+            object-fit: contain;
+        }
+
+        .thumbnail-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+        }
+
+        .thumbnail {
+            aspect-ratio: 1;
+            background: var(--gray);
+            border-radius: 10px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .thumbnail:hover {
+            transform: scale(1.05);
+        }
+
+        .product-info {
+            padding: 1rem;
+        }
+
+        .product-title {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--text);
+        }
+
+        .product-rating {
+            color: #ffd700;
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .product-price {
+            font-size: 2rem;
+            color: var(--primary);
+            margin: 1rem 0;
+            font-weight: bold;
+        }
+
+        .product-description {
+            margin: 2rem 0;
+            color: #666;
+        }
+
+        .features-list {
+            margin: 2rem 0;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+            padding: 1rem;
+            background: var(--gray);
+            border-radius: 10px;
+        }
+
+        .feature-icon {
+            width: 40px;
+            height: 40px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1rem;
+        }
+
+        .quantity-selector {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .quantity-btn {
+            width: 40px;
+            height: 40px;
+            border: none;
+            background: var(--gray);
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.2rem;
+            transition: background-color 0.3s ease;
+        }
+
+        .quantity-btn:hover {
+            background: #e0e0e0;
+        }
+
+        .quantity-input {
+            width: 60px;
+            height: 40px;
+            text-align: center;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1.1rem;
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 1.1rem;
+            transition: transform 0.3s ease;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+            flex: 2;
+        }
+
+        .btn-secondary {
+            background: var(--gray);
+            color: var(--text);
+            flex: 1;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .specifications {
+            margin-top: 2rem;
+            padding: 1rem;
+            background: var(--gray);
+            border-radius: 10px;
+        }
+
+        .spec-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .spec-item {
+            padding: 0.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .product-container {
+                grid-template-columns: 1fr;
+                padding: 1rem;
+            }
+
+            .product-gallery {
+                position: static;
+            }
+
+            .main-image {
+                height: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-content">
+            <div class="logo">HomeGears</div>
+            <div class="nav-links">
+                <a href="file:///C:/Users/kuruv/Desktop/New%20folder/shopease.html#home">Home</a>
+                <a href="#cart">Cart</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="product-container">
+        <div class="product-gallery">
+            <div class="main-image">
+                <img src="https://media.istockphoto.com/id/1468588754/photo/laundry-room-interior-with-washing-machine-dryer-white-cabinets-drying-rack-and-blurred-plants.jpg?s=612x612&w=0&k=20&c=jTk9Ttls3S_tSFiOIhzLajdUe1xwHkWc4FRceF5_GIM=" alt="Front Load Washing Machine">
+            </div>
+        </div>
+
+        <div class="product-info">
+            <h1 class="product-title">Smart Front Load Washing Machine XL9000</h1>
+            <div class="product-rating">★★★★★ <span style="color: #666">(478 reviews)</span></div>
+            <div class="product-price">$899.99</div>
+
+            <div class="product-description">
+                <p>Experience superior cleaning with the Smart Front Load Washing Machine XL9000. Featuring AI-powered wash cycles, steam technology, and energy-efficient operation, this washing machine delivers exceptional cleaning performance while being gentle on your clothes. The large 9kg capacity and versatile programs make it perfect for families of all sizes.</p>
+            </div>
+
+            <div class="features-list">
+                <div class="feature-item">
+                    <div class="feature-icon">🌀</div>
+                    <div>9kg Large Capacity</div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">💨</div>
+                    <div>Steam Hygiene Technology</div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">📱</div>
+                    <div>Smart App Control & Monitoring</div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">⚡</div>
+                    <div>A+++ Energy Rating</div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">🔄</div>
+                    <div>1400 RPM Spin Speed</div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">🌡️</div>
+                    <div>Multiple Temperature Settings</div>
+                </div>
+            </div>
+
+            <div class="quantity-selector">
+                <button class="quantity-btn">-</button>
+                <input type="number" class="quantity-input" value="1" min="1" max="99">
+                <button class="quantity-btn">+</button>
+            </div>
+
+            <div class="action-buttons">
+                <button class="btn btn-primary">Add to Cart</button>
+                <button class="btn btn-secondary">♡ Wishlist</button>
+            </div>
+
+            <div class="specifications">
+                <h3>Technical Specifications</h3>
+                <div class="spec-grid">
+                    <div class="spec-item">
+                        <strong>Capacity:</strong> 9 kg
+                    </div>
+                    <div class="spec-item">
+                        <strong>Spin Speed:</strong> 1400 RPM
+                    </div>
+                    <div class="spec-item">
+                        <strong>Energy Rating:</strong> A+++
+                    </div>
+                    <div class="spec-item">
+                        <strong>Water Consumption:</strong> 45L/cycle
+                    </div>
+                    <div class="spec-item">
+                        <strong>Noise Level:</strong> 48dB Wash/74dB Spin
+                    </div>
+                    <div class="spec-item">
+                        <strong>Programs:</strong> 15 Wash Cycles
+                    </div>
+                    <div class="spec-item">
+                        <strong>Display:</strong> LED Touch Panel
+                    </div>
+                    <div class="spec-item">
+                        <strong>Dimensions:</strong> 85x60x60 cm
+                    </div>
+                    <div class="spec-item">
+                        <strong>Smart Features:</strong> WiFi & App Control
+                    </div>
+                    <div class="spec-item">
+                        <strong>Warranty:</strong> 5 Years
+                    </div>
+                </div>
+
+                <div style="margin-top: 2rem;">
+                    <h3>Wash Programs</h3>
+                    <div class="spec-grid" style="margin-top: 1rem;">
+                        <div class="spec-item">• Cotton</div>
+                        <div class="spec-item">• Quick Wash</div>
+                        <div class="spec-item">• Eco Wash</div>
+                        <div class="spec-item">• Wool</div>
+                        <div class="spec-item">• Delicates</div>
+                        <div class="spec-item">• Sports Wear</div>
+                        <div class="spec-item">• Baby Care</div>
+                        <div class="spec-item">• Steam Sanitize</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

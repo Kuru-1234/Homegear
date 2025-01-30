@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homegears- Your One-Stop Shop</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        :root {
+            --primary: #4CAF50;
+            --secondary: #2196F3;
+            --accent: #FF5722;
+            --background: #f5f5f5;
+        }
+
+        /* Navbar Styles */
+        nav {
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            padding: 1rem 2rem;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        /* Hero Section */
+        .hero {
+            background-image: url('https://www.shutterstock.com/image-vector/vector-illustration-realistic-silver-color-600nw-2202634611.jpg');
+            margin-top: 60px;
+            background-size:1280px;
+            background-repeat: no-repeat;
+            /*background: linear-gradient(45deg, var(--primary), var(--secondary));*/
+            color: white;
+            padding: 9rem 2rem;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Product Styles */
+        .products {
+            background: var(--background);
+            padding: 1rem;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: #333;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            padding: 1rem 0;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: transform 0.3s ease;
+            text-align: center;
+        }
+
+        .product-card:hover {
+            transform: scale(1.05);
+        }
+
+        .product-image img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .product-content {
+            padding: 1rem;
+        }
+
+        .product-price {
+            color: var(--primary);
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin: 0.5rem 0;
+        }
+
+        .btn {
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #45a049;
+            transform: scale(1.05);
+        }
+
+        .btn-add-to-cart {
+            background: var(--accent);
+            color: white;
+            width: 100%;
+            margin-top: 1rem;
+        }
+
+        .btn-add-to-cart:hover {
+            animation: addToCart 1s ease;
+        }
+
+        @keyframes addToCart {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
+        /* Footer */
+        footer {
+            background: #333;
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <div class="logo">HomeGears</div>
+            <div class="nav-links">
+                <a href="#home">Home</a>
+                <a href="#products">Products</a>
+                <a href="#cart">Cart</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero" id="home">
+        <h1>Welcome to HomeGears</h1>
+        <p>Discover amazing products at great prices</p>
+        <button class="btn btn-primary" onclick="window.location.href='#products'">Shop Now</button>
+    </section>
+
+    <section class="products" id="products">
+        <h2 class="section-title">Our Products</h2>
+        <div class="product-grid">
+            <!-- Product 1 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://www.ikea.com/global/assets/range-categorisation/images/smart-led-light-bulbs-36813.jpeg" alt="Smart LED Bulb">
+                </div>
+                <div class="product-content">
+                    <h3>Smart LED Bulb</h3>
+                    <p>Voice-controlled</p>
+                    <div class="product-price">$29.99</div>
+                    <button class="btn btn-add-to-cart" onclick="navhome()">More Details</button>
+                </div>
+            </div>
+
+            <!-- Product 2 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://assets.epicurious.com/photos/62741684ef40ea9d3866a0be/16:9/w_2560%2Cc_limit/breville-bambino-espresso-maker_HERO_050422_8449_VOG_Badge_final.jpg" alt="Coffee Maker">
+                </div>
+                <div class="product-content">
+                    <h3>Coffee Maker</h3>
+                    <p>Programmable brewing</p>
+                    <div class="product-price">$79.99</div>
+                    <button class="btn btn-add-to-cart" onclick="coffee()">More Details</button>
+                </div>
+            </div>
+
+            <!-- Product 3 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://www.reliancedigital.in/wp-content/uploads/2020/12/cover_robot_vacuum_cleaners.jpg" alt="Robot Vacuum">
+                </div>
+                <div class="product-content">
+                    <h3>Robot Vacuum</h3>
+                    <p>Smart cleaning</p>
+                    <div class="product-price">$299.99</div>
+                    <button class="btn btn-add-to-cart" onclick="robot()">More Details</button>
+                </div>
+            </div>
+        </div>  
+    </section> 
+    <section class="products" id="products">
+        <div class="product-grid">
+            <!-- Product 1 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://media.istockphoto.com/id/1468588754/photo/laundry-room-interior-with-washing-machine-dryer-white-cabinets-drying-rack-and-blurred-plants.jpg?s=612x612&w=0&k=20&c=jTk9Ttls3S_tSFiOIhzLajdUe1xwHkWc4FRceF5_GIM=" alt="Smart LED Bulb">
+                </div>
+                <div class="product-content">
+                    <h3>Washing Machine</h3>
+                    <p>Perfect wash</p>
+                    <div class="product-price">$899.99</div>
+                    <button class="btn btn-add-to-cart" onclick="wash()">More Details</button>
+                </div>
+            </div>
+
+            <!-- Product 2 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://cdn.mos.cms.futurecdn.net/VLGKutQMQS7bEYB9zZ7qan-1200-80.jpeg" alt="Coffee Maker">
+                </div>
+                <div class="product-content">
+                    <h3>Refrigerator</h3>
+                    <p>Fresh food for delight moments</p>
+                    <div class="product-price">$2499.99</div>
+                    <button class="btn btn-add-to-cart" onclick="ref()">More Details</button>
+                </div>
+            </div>
+
+            <!-- Product 3 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://cdn.buymode.shop/images/1P5ZK21STM2LJBJ4I-1729667415186.jpg" alt="Robot Vacuum">
+                </div>
+                <div class="product-content">
+                    <h3>Mixer Grinder</h3>
+                    <p>Compact & Powerful</p>
+                    <div class="product-price">$149.99</div>
+                    <button class="btn btn-add-to-cart" onclick="Mixer()">More Details</button>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="products" id="products">
+        <div class="product-grid">
+            <!-- Product 1 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://img.global.news.samsung.com/in/wp-content/uploads/2022/10/13627-MWO-Pickle-mode-KV-1000x563.jpg" alt="Smart LED Bulb">
+                </div>
+                <div class="product-content">
+                    <h3>Microwave</h3>
+                    <p>Reduce cooking time by half</p>
+                    <div class="product-price">$249.99</div>
+                    <button class="btn btn-add-to-cart" onclick="Micro()">More Details</button>
+                </div>
+            </div>
+
+            <!-- Product 2 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://www.adgully.com/img/800/202008/prewash.jpg" alt="Coffee Maker">
+                </div>
+                <div class="product-content">
+                    <h3>Dish Washer</h3>
+                    <p>Added space absolute convenience</p>
+                    <div class="product-price">$499.99</div>
+                    <button class="btn btn-add-to-cart" onclick="Dish()">More Details</button>
+                </div>
+            </div>
+
+            <!-- Product 3 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://m.media-amazon.com/images/S/aplus-media-library-service-media/6c1cd12a-002b-4912-b4b6-a3a3adde0772.__CR0,0,970,600_PT0_SX970_V1___.jpg" alt="Robot Vacuum">
+                </div>
+                <div class="product-content">
+                    <h3>Kitchen Chimney</h3>
+                    <p>Silence all the way</p>
+                    <div class="product-price">$699.99</div>
+                    <button class="btn btn-add-to-cart" onclick="Chimney()">More Details</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 HomeGears. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function navhome() {
+            window.location.href = 'smartled.html';
+        }
+        function coffee() {
+            window.location.href = 'coffeemaker.html';
+        }
+        function robot() {
+            window.location.href = 'robotvacuum.html';
+        }
+        function wash() {
+            window.location.href = 'washingmachine.html';
+        }
+        function ref() {
+            window.location.href = 'refrigerator.html';
+        }
+        function Mixer() {
+            window.location.href = 'mixer.html';
+        }
+        function Micro() {
+            window.location.href = 'microwave.html';
+        }
+		function Dish() {
+            window.location.href = 'dishwasher.html';
+        }
+		function Chimney() {
+            window.location.href = 'chimney.html';
+        }
+    </script>
+</body>
+</html>

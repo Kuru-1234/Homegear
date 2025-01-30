@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dishwasher - Next Generation Cleaning</title>
+    <style>
+* {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --primary: #4CAF50;
+            --secondary: #2196F3;
+            --accent: #FF5722;
+            --gray: #f5f5f5;
+            --text: #333;
+        }
+
+        body {
+            background-color: var(--gray);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        nav {
+            background: white;
+            padding: 1rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary);
+        }
+
+        .nav-links a {
+            margin-left: 2rem;
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 500;
+        }
+
+        .product-container {
+            max-width: 1200px;
+            margin: 100px auto 50px;
+            padding: 2rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .product-gallery {
+            position: sticky;
+            top: 100px;
+        }
+
+        .main-image {
+            width: 100%;
+            height: 400px;
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .main-image img {
+            width: 100%;
+            height: 90%;
+            object-fit: contain;
+        }
+
+        .thumbnail-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+        }
+
+        .thumbnail {
+            aspect-ratio: 1;
+            background: var(--gray);
+            border-radius: 10px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .thumbnail:hover {
+            transform: scale(1.05);
+        }
+
+        .product-info {
+            padding: 1rem;
+        }
+
+        .product-title {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--text);
+        }
+
+        .product-rating {
+            color: #ffd700;
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .product-price {
+            font-size: 2rem;
+            color: var(--primary);
+            margin: 1rem 0;
+            font-weight: bold;
+        }
+
+        .product-description {
+            margin: 2rem 0;
+            color: #666;
+        }
+
+        .features-list {
+            margin: 2rem 0;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+            padding: 1rem;
+            background: var(--gray);
+            border-radius: 10px;
+        }
+
+        .feature-icon {
+            width: 40px;
+            height: 40px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1rem;
+        }
+
+        .quantity-selector {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .quantity-btn {
+            width: 40px;
+            height: 40px;
+            border: none;
+            background: var(--gray);
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.2rem;
+            transition: background-color 0.3s ease;
+        }
+
+        .quantity-btn:hover {
+            background: #e0e0e0;
+        }
+
+        .quantity-input {
+            width: 60px;
+            height: 40px;
+            text-align: center;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1.1rem;
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 1.1rem;
+            transition: transform 0.3s ease;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+            flex: 2;
+        }
+
+        .btn-secondary {
+            background: var(--gray);
+            color: var(--text);
+            flex: 1;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .specifications {
+            margin-top: 2rem;
+            padding: 1rem;
+            background: var(--gray);
+            border-radius: 10px;
+        }
+
+        .spec-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .spec-item {
+            padding: 0.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .product-container {
+                grid-template-columns: 1fr;
+                padding: 1rem;
+            }
+
+            .product-gallery {
+                position: static;
+            }
+
+            .main-image {
+                height: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-content">
+            <div class="logo">HomeGears</div>
+            <div class="nav-links">
+                <a href="file:///C:/Users/kuruv/Desktop/New%20folder/shopease.html#home">Home</a>
+                <a href="#cart">Cart</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="product-container">
+        <div class="product-gallery">
+            <div class="main-image">
+                <img src="https://www.adgully.com/img/800/202008/prewash.jpg" alt="Dishwasher">
+            </div>
+        </div>
+
+        <div class="product-info">
+            <h1 class="product-title">High-Efficiency Dishwasher</h1>
+            <div class="product-rating">★★★★★ <span style="color: #666">(256 reviews)</span></div>
+            <div class="product-price">$499.99</div>
+
+            <div class="product-description">
+                <p>Experience ultimate cleanliness with our High-Efficiency Dishwasher. Features energy-saving performance, quick wash cycles, and a silent operation for a hassle-free experience.</p>
+            </div>
+
+            <div class="features-list">
+                <div class="feature-item">
+                    <div class="feature-icon">⚡</div>
+                    <div>Energy Efficient (Low Power Consumption)</div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">⏱</div>
+                    <div>Quick Wash Cycle</div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">🔇</div>
+                    <div>Whisper Quiet Operation</div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">💧</div>
+                    <div>Water Saving Technology</div>
+                </div>
+            </div>
+
+            <div class="quantity-selector">
+                <button class="quantity-btn">-</button>
+                <input type="number" class="quantity-input" value="1" min="1" max="99">
+                <button class="quantity-btn">+</button>
+            </div>
+
+            <div class="action-buttons">
+                <button class="btn btn-primary">Add to Cart</button>
+                <button class="btn btn-secondary">♡ Wishlist</button>
+            </div>
+
+            <div class="specifications">
+                <h3>Technical Specifications</h3>
+                <div class="spec-grid">
+                    <div class="spec-item">
+                        <strong>Capacity:</strong> 14 Place Settings
+                    </div>
+                    <div class="spec-item">
+                        <strong>Energy Rating:</strong> A+++
+                    </div>
+                    <div class="spec-item">
+                        <strong>Noise Level:</strong> 42 dB
+                    </div>
+                    <div class="spec-item">
+                        <strong>Water Usage:</strong> 6.5 L per cycle
+                    </div>
+                    <div class="spec-item">
+                        <strong>Dimensions:</strong> 60 x 60 x 85 cm
+                    </div>
+                    <div class="spec-item">
+                        <strong>Warranty:</strong> 2 Years
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

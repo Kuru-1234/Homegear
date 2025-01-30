@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premium Mixer Grinder - Kitchen Essentials</title>
+    <style>
+         * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --primary: #4CAF50;
+            --secondary: #2196F3;
+            --accent: #FF5722;
+            --gray: #f5f5f5;
+            --text: #333;
+        }
+
+        body {
+            background-color: var(--gray);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        nav {
+            background: white;
+            padding: 1rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary);
+        }
+
+        .nav-links a {
+            margin-left: 2rem;
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 500;
+        }
+
+        .product-container {
+            max-width: 1200px;
+            margin: 100px auto 50px;
+            padding: 2rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .product-gallery {
+            position: sticky;
+            top: 100px;
+        }
+
+        .main-image {
+            width: 100%;
+            height: 400px;
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .main-image img {
+            width: 100%;
+            height: 90%;
+            object-fit: contain;
+        }
+
+        .thumbnail-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+        }
+
+        .thumbnail {
+            aspect-ratio: 1;
+            background: var(--gray);
+            border-radius: 10px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .thumbnail:hover {
+            transform: scale(1.05);
+        }
+
+        .product-info {
+            padding: 1rem;
+        }
+
+        .product-title {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--text);
+        }
+
+        .product-rating {
+            color: #ffd700;
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .product-price {
+            font-size: 2rem;
+            color: var(--primary);
+            margin: 1rem 0;
+            font-weight: bold;
+        }
+
+        .product-description {
+            margin: 2rem 0;
+            color: #666;
+        }
+
+        .features-list {
+            margin: 2rem 0;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+            padding: 1rem;
+            background: var(--gray);
+            border-radius: 10px;
+        }
+
+        .feature-icon {
+            width: 40px;
+            height: 40px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1rem;
+        }
+
+        .quantity-selector {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .quantity-btn {
+            width: 40px;
+            height: 40px;
+            border: none;
+            background: var(--gray);
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.2rem;
+            transition: background-color 0.3s ease;
+        }
+
+        .quantity-btn:hover {
+            background: #e0e0e0;
+        }
+
+        .quantity-input {
+            width: 60px;
+            height: 40px;
+            text-align: center;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1.1rem;
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 1.1rem;
+            transition: transform 0.3s ease;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+            flex: 2;
+        }
+
+        .btn-secondary {
+            background: var(--gray);
+            color: var(--text);
+            flex: 1;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .specifications {
+            margin-top: 2rem;
+            padding: 1rem;
+            background: var(--gray);
+            border-radius: 10px;
+        }
+
+        .spec-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .spec-item {
+            padding: 0.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .product-container {
+                grid-template-columns: 1fr;
+                padding: 1rem;
+            }
+
+            .product-gallery {
+                position: static;
+            }
+
+            .main-image {
+                height: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-content">
+            <div class="logo">HomeGears</div>
+            <div class="nav-links">
+                <a href="file:///C:/Users/kuruv/Desktop/New%20folder/shopease.html#home">Home</a>
+                <a href="#cart">Cart</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="product-container">
+        <div class="product-gallery">
+            <div class="main-image">
+                <img src="https://cdn.buymode.shop/images/1P5ZK21STM2LJBJ4I-1729667415186.jpg" alt="Premium Mixer Grinder">
+            </div>
+        </div>
+
+        <div class="product-info">
+            <h1 class="product-title">Premium Mixer Grinder Pro</h1>
+            <div class="product-rating">★★★★★ <span style="color: #666">(256 reviews)</span></div>
+            <div class="product-price">$149.99</div>
+
+            <div class="product-description">
+                <p>Experience superior grinding and mixing with our Premium Mixer Grinder Pro. Featuring powerful motor, multiple speed settings, and versatile jar options for all your kitchen needs. Perfect for Indian cooking, smoothies, and more.</p>
+            </div>
+
+            <div class="features-list">
+                <div class="feature-item">
+                    <div class="feature-icon">⚡</div>
+                    <div>750W Powerful Motor</div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">🔄</div>
+                    <div>3 Speed Control with Pulse Function</div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">🏆</div>
+                    <div>4 Sturdy Stainless Steel Jars</div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">🛡️</div>
+                    <div>Motor Overload Protection</div>
+                </div>
+            </div>
+
+            <div class="quantity-selector">
+                <button class="quantity-btn">-</button>
+                <input type="number" class="quantity-input" value="1" min="1" max="99">
+                <button class="quantity-btn">+</button>
+            </div>
+
+            <div class="action-buttons">
+                <button class="btn btn-primary">Add to Cart</button>
+                <button class="btn btn-secondary">♡ Wishlist</button>
+            </div>
+
+            <div class="specifications">
+                <h3>Technical Specifications</h3>
+                <div class="spec-grid">
+                    <div class="spec-item">
+                        <strong>Motor Power:</strong> 750W
+                    </div>
+                    <div class="spec-item">
+                        <strong>Voltage:</strong> 220-240V
+                    </div>
+                    <div class="spec-item">
+                        <strong>Jar Sizes:</strong> 1.5L, 1.0L, 0.4L
+                    </div>
+                    <div class="spec-item">
+                        <strong>Speed Settings:</strong> 3 + Pulse
+                    </div>
+                    <div class="spec-item">
+                        <strong>Material:</strong> Stainless Steel
+                    </div>
+                    <div class="spec-item">
+                        <strong>Warranty:</strong> 2 Years
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
